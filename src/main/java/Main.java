@@ -1,4 +1,5 @@
 import CardGame.Card;
+import snap.Player;
 import snap.PlayerMessages;
 import snap.Snap;
 
@@ -18,10 +19,14 @@ public class Main {
 //        String WHITE_BG = "\u001B[47m";
 
         Snap snapGame = new Snap("snap");
-        PlayerMessages.gameIntroduction();
+        Player player1 = new Player(1);
+        Player player2 = new Player(2);
+
+        PlayerMessages.gameIntroduction(player1, player2);
+        Player currentPlayer = player1;
 
         while (true) {
-            Card currentTurnCard = snapGame.takeTurn();
+            Card currentTurnCard = snapGame.takeTurn(currentPlayer);
 
             if (currentTurnCard == null) {
                 PlayerMessages.gameIsADraw();
@@ -29,12 +34,16 @@ public class Main {
             }
 
             if(snapGame.checkWin(currentTurnCard)) {
-                PlayerMessages.playerWon();
+                PlayerMessages.playerWon(currentPlayer);
                 break;
             }
             snapGame.setPreviousCard(currentTurnCard);
-            snapGame.sortDeckInNumberOrder();
-            snapGame.getDeck();
+            if(currentPlayer == player1) {
+                currentPlayer = player2;
+            }
+            else {
+                currentPlayer = player1;
+            }
         }
     }
 }

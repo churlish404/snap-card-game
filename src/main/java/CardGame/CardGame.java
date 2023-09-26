@@ -13,7 +13,6 @@ public abstract class CardGame {
         this.name = name;
         deck = new ArrayList<>();
         populateDeck();
-
     }
     public void getDeck() {
         System.out.println(deck);

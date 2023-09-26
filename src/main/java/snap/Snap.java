@@ -15,8 +15,8 @@ public class Snap extends CardGame {
     public Snap(String name) {
         super(name);
         shuffleDeck();
-    }
 
+    }
     public Card getPreviousCard() {
         return previousCard;
     }
@@ -32,9 +32,9 @@ public class Snap extends CardGame {
         return false;
     }
 
-    public Card takeTurn() {
+    public Card takeTurn(Player currentPlayer) {
         while (true) {
-            PlayerMessages.promptTakeTurn();
+            PlayerMessages.promptTakeTurn(currentPlayer);
             String input = playerTurn.nextLine();
 
             if (input.isEmpty()) {
@@ -42,7 +42,7 @@ public class Snap extends CardGame {
                 Card dealtCard = dealCard();
 
                 if (dealtCard != null) {
-                    PlayerMessages.cardDrawn(dealtCard.toString());
+                    PlayerMessages.cardDrawn(dealtCard.toString(), currentPlayer);
                 } else {
                     PlayerMessages.lastCardDealt();
                     return null;
