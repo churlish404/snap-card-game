@@ -23,8 +23,13 @@ public class Main {
         while (true) {
             Card currentTurnCard = snapGame.takeTurn();
 
+            if (currentTurnCard == null) {
+                PlayerMessages.gameIsADraw();
+                break;
+            }
+
             if(snapGame.checkWin(currentTurnCard)) {
-                System.out.println("SNAP YOU WIN!");
+                PlayerMessages.playerWon();
                 break;
             }
             snapGame.setPreviousCard(currentTurnCard);

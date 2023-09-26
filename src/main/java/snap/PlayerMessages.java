@@ -18,4 +18,16 @@ public class PlayerMessages {
     }
 
     public static void lastCardDealt() {System.out.println("Last card dealt");}
+
+    public static void gameIsADraw() {
+        System.out.println("NO SNAP....game is a draw");
+    }
+
+    public static void playerWon() {
+        System.out.println("SNAP YOU WIN!");
+    }
+
+    public static void onlyPressEnter() {
+        System.out.println("Need to press enter to take turn");
+    }
 }

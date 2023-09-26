@@ -3,6 +3,7 @@ package snap;
 import CardGame.CardGame;
 import CardGame.Card;
 
+
 import java.util.List;
 import java.util.Scanner;
 
@@ -33,19 +34,24 @@ public class Snap extends CardGame {
     }
 
     public Card takeTurn() {
-        PlayerMessages.promptTakeTurn();
-        String input = playerTurn.nextLine();
+        while (true) {
+            PlayerMessages.promptTakeTurn();
+            String input = playerTurn.nextLine();
 
-        if (!input.isEmpty()) return null;
+            if (input.isEmpty()) {
 
-        Card dealtCard = dealCard();
+                Card dealtCard = dealCard();
 
-        if (dealtCard != null) {
-            PlayerMessages.cardDrawn(dealtCard.toString());
-        } else {
-            PlayerMessages.lastCardDealt();
+                if (dealtCard != null) {
+                    PlayerMessages.cardDrawn(dealtCard.toString());
+                } else {
+                    PlayerMessages.lastCardDealt();
+                    return null;
+                }
+                return dealtCard;
+            } else {
+                PlayerMessages.onlyPressEnter();
+            }
         }
-        return dealtCard;
     }
-
 }
