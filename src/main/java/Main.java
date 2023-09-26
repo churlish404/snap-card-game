@@ -33,6 +33,8 @@ public class Main {
                 break;
             }
             snapGame.setPreviousCard(currentTurnCard);
+            snapGame.sortDeckInNumberOrder();
+            snapGame.getDeck();
         }
     }
 }

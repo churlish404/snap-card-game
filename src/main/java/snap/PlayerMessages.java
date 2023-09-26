@@ -28,6 +28,6 @@ public class PlayerMessages {
     }
 
     public static void onlyPressEnter() {
-        System.out.println("Need to press enter to take turn");
+        System.out.println("You need to press enter to take turn");
     }
 }
