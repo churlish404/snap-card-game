@@ -1,4 +1,6 @@
-package snap;
+import CardGame.Card;
+import snap.PlayerMessages;
+import snap.Snap;
 
 import java.awt.*;
 import java.sql.SQLOutput;
@@ -15,10 +17,17 @@ public class Main {
 //        String BLACK_BG = "\u001B[40m";
 //        String WHITE_BG = "\u001B[47m";
 
-//        Card demoCard = new Card(Suits.CLUB, Ranks.FOUR);
+        Snap snapGame = new Snap("snap");
+        PlayerMessages.gameIntroduction();
 
-        CardGame cardGame = new CardGame("Snap");
+        while (true) {
+            Card currentTurnCard = snapGame.takeTurn();
 
-
+            if(snapGame.checkWin(currentTurnCard)) {
+                System.out.println("SNAP YOU WIN!");
+                break;
+            }
+            snapGame.setPreviousCard(currentTurnCard);
+        }
     }
 }

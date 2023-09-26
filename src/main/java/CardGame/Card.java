@@ -1,4 +1,4 @@
-package snap;
+package CardGame;
 
 public class Card {
 
@@ -20,6 +20,6 @@ public class Card {
 
     @Override
     public String toString() {
-        return suit.getSuit() + rank.getSymbol();
+        return suit.getSuit() + " " + rank.getSymbol();
     }
 }

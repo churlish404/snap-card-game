@@ -1,13 +1,11 @@
-package snap;
-
-import snap.Card;
+package CardGame;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class CardGame {
+public abstract class CardGame {
     private String name;
     private List<Card> deck;
 
@@ -29,8 +27,15 @@ public class CardGame {
     }
 
     public Card dealCard(){
-        return deck.get(0);
+        if (!deck.isEmpty()) {
+            Card card = deck.get(0);
+            deck.remove(0);
+            return card;
+        } else {
+            return null;
+        }
     }
+
 
     public List<Card> sortDeckInNumberOrder() {
         deck = deck.stream().sorted((a, b) -> a.getValue() - b.getValue()).collect(Collectors.toList());
