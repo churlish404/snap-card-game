@@ -14,7 +14,7 @@ public class PlayerMessages {
     }
 
     public static void cardDrawn(String dealtCard, Player currentPlayer) {
-        System.out.println(currentPlayer.getName() + " drew " + dealtCard + "\n");
+        System.out.println(currentPlayer.getName() + " drew \n " + dealtCard + "\n");
     }
 
     public static void lastCardDealt() {System.out.println("Last card dealt");}
@@ -29,10 +29,6 @@ public class PlayerMessages {
 
     public static void onlyPressEnter() {
         System.out.println("You need to press enter to take turn");
-    }
-
-    public static void timerExpired(Player currentPlayer) {
-        System.out.println("Too slow " + currentPlayer.getName());
     }
 
     public static void incorrectSnapInput(Player currentPlayer) {

@@ -20,6 +20,19 @@ public class Card {
 
     @Override
     public String toString() {
-        return rank.getSymbol() + " " + suit.getSuit();
+        String WHITE_BG = "\u001B[47m";
+        String RED_TEXT = "\u001B[31m";
+        String RESET = "\u001B[0m";
+        String BLACK_TEXT = "\u001B[30m";
+
+        if(suit.getSuit().equals( "♦")) {
+            return WHITE_BG + RED_TEXT + rank.getSymbol() + " " + suit.getSuit() + RESET;
+        } else if (suit.getSuit().equals("♥")) {
+            return WHITE_BG + RED_TEXT + rank.getSymbol() + " " + suit.getSuit() + " " + RESET;
+        } else {
+            return WHITE_BG + BLACK_TEXT + rank.getSymbol() + " " + suit.getSuit()
+                    + RESET;
+        }
     }
 }
+

@@ -35,7 +35,6 @@ public abstract class CardGame {
         }
     }
 
-
     public List<Card> sortDeckInNumberOrder() {
         deck = deck.stream().sorted((a, b) -> a.getValue() - b.getValue()).collect(Collectors.toList());
         return deck;

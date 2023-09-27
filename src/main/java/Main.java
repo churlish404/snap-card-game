@@ -12,18 +12,14 @@ import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
-//        String RESET = "\u001B[0m";
-//        String RED_TEXT = "\u001B[31m";
-//        String BLACK_TEXT = "\u001B[30m";
-//        String BLACK_BG = "\u001B[40m";
-//        String WHITE_BG = "\u001B[47m";
 
-        Snap snapGame = new Snap("snap");
+        Snap snapGame = new Snap("myGame");
         Player player1 = new Player(1);
         Player player2 = new Player(2);
 
         PlayerMessages.gameIntroduction(player1, player2);
         Player currentPlayer = player1;
+
 
         while (true) {
             Card currentTurnCard = snapGame.takeTurn(currentPlayer);
@@ -33,8 +29,8 @@ public class Main {
                 break;
             }
 
-            if(snapGame.checkSnap(currentTurnCard)) {
-                snapGame.startTimer(currentPlayer);
+            if(snapGame.checkWin(currentTurnCard)) {
+                PlayerMessages.playerWon(currentPlayer);
                 break;
             }
             snapGame.setPreviousCard(currentTurnCard);
