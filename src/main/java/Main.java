@@ -33,8 +33,8 @@ public class Main {
                 break;
             }
 
-            if(snapGame.checkWin(currentTurnCard)) {
-                PlayerMessages.playerWon(currentPlayer);
+            if(snapGame.checkSnap(currentTurnCard)) {
+                snapGame.startTimer(currentPlayer);
                 break;
             }
             snapGame.setPreviousCard(currentTurnCard);

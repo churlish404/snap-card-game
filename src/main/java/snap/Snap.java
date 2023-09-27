@@ -11,6 +11,7 @@ public class Snap extends CardGame {
 
     Scanner playerTurn = new Scanner(System.in);
     private Card previousCard = null;
+    private Timer timer;
 
     public Snap(String name) {
         super(name);
@@ -25,7 +26,7 @@ public class Snap extends CardGame {
         this.previousCard = previousCard;
     }
 
-    public boolean checkWin(Card currentCard) {
+    public boolean checkSnap(Card currentCard) {
         if (previousCard != null) {
             return currentCard.getValue() == previousCard.getValue();
         }
@@ -51,6 +52,17 @@ public class Snap extends CardGame {
             } else {
                 PlayerMessages.onlyPressEnter();
             }
+        }
+    }
+
+    public void startTimer(Player currentPlayer) {
+        timer = new Timer(currentPlayer);
+        timer.start();
+    }
+
+    public void stopTimer() {
+        if(timer != null) {
+            timer.interrupt();
         }
     }
 }

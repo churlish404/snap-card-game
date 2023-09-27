@@ -12,8 +12,4 @@ public enum Suits {
     public String getSuit() {
         return suit;
     }
-
-    public void printSuit() {
-        System.out.println(suit);
-    }
 }

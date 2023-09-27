@@ -30,4 +30,12 @@ public class PlayerMessages {
     public static void onlyPressEnter() {
         System.out.println("You need to press enter to take turn");
     }
+
+    public static void timerExpired(Player currentPlayer) {
+        System.out.println("Too slow " + currentPlayer.getName());
+    }
+
+    public static void incorrectSnapInput(Player currentPlayer) {
+        System.out.println(currentPlayer + " spelt it wrong!");
+    }
 }

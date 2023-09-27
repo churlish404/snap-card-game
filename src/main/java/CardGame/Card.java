@@ -20,6 +20,6 @@ public class Card {
 
     @Override
     public String toString() {
-        return suit.getSuit() + " " + rank.getSymbol();
+        return rank.getSymbol() + " " + suit.getSuit();
     }
 }
